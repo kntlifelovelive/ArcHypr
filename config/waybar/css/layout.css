@@ -1,0 +1,64 @@
+/* ============================================================
+   LAYOUT UNIFICATION (Padding, Margin, Size, Font)
+   ============================================================ */
+
+
+#custom-power,
+#pulseaudio,
+#backlight,
+#network,
+#custom-power,
+#custom-quit,
+#custom-lock,
+#custom-reboot,
+#custom-snip,
+#tooltip,
+#clock,
+#custom-netspeed,
+#language,
+#media,
+#custom-screenshot,
+#tray {
+    /* margin: 4px 2px; */
+
+    padding: 0 10px;
+
+    min-width: 0;
+
+    font-size: 13px;
+
+    min-height: 20px;
+
+    border-radius: 1px;
+}
+
+#workspaces {
+    margin: 4px 2px;
+    padding: 0 4px;
+    border-radius: 1px;
+}
+
+#workspaces button {
+    margin: 2px 1px;
+    padding: 0 8px;
+    min-width: 0;
+    font-size: 13px;
+    min-height: 20px;
+    border-radius: 2px;
+}
+
+#group-power {
+    margin: 4px 2px;
+    padding: 0 4px;
+    background: transparent;
+}
+
+
+#group-power button {
+    margin: 2px 1px;
+    padding: 0 8px;
+    min-width: 0;
+    font-size: 13px;
+    min-height: 20px;
+    border-radius: 4px;
+}

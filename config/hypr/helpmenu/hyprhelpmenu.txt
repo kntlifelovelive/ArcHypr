@@ -1,0 +1,90 @@
+========= HYPRLAND KEYBINDS =========
+
+========= APPLICATIONS =========
+SUPER + T              → Open Terminal (kitty)
+SUPER + E              → Open File Manager (nautilus)
+SUPER + B              → Open Browser (Firefox)
+SUPER + CTRL + B       → Open Zen Browser
+SUPER + CTRL + M       → Music Player
+SUPER + CTRL + T       → Telegram
+SUPER + D              → App Launcher
+SUPER + CTRL + P       → Power Menu
+
+========= WINDOW CONTROL =========
+SUPER + Q              → Close active window
+SUPER + CTRL + F       → Toggle floating
+SUPER + P              → Toggle pseudo
+SUPER + J              → Toggle split
+SUPER + H              → Focus left
+SUPER + L              → Focus right
+SUPER + K              → Focus up
+SUPER + j              → Focus down
+SUPER + SHIFT + H      → Move window left
+SUPER + SHIFT + L      → Move window right
+SUPER + SHIFT + K      → Move window up
+SUPER + SHIFT + J      → Move window down
+SUPER + mouse:272      → Move window (mouse)
+SUPER + mouse:273      → Resize window (mouse)
+
+========= WORKSPACES =========
+SUPER + 1-0            → Switch workspace
+SUPER + SHIFT + 1-0    → Move window to workspace
+SUPER + TAB            → Next workspace
+SUPER + CTRL + TAB     → Previous workspace
+SUPER + SHIFT + TAB    → New workspace
+SUPER + S              → Toggle scratchpad (special:magic)
+SUPER + SHIFT + S      → Move window to scratchpad
+
+========= THEME / LOOK =========
+SUPER + R              → Reload Waybar
+SUPER + W              → Switch Waybar CSS Theme
+SUPER + ALT + W        → Switch Waybar Pair Theme
+SUPER + CTRL + W       → Switch Wallpaper
+SUPER + ALT + B        → HyprBorder Switch Theme
+SUPER + ALT + K        → Kitty Themes Switch
+SUPER + ALT + R        → Rofi All Colors Switch
+SUPER + ALT + F        → Select Foreground Image
+SUPER + SHIFT + L      → Select Lock Background
+
+========= SYSTEM =========
+SUPER + SPACE          → Switch Keyboard Layout
+SUPER + ALT + H        → Open Help Menu
+
+========= ZSH KEYBINDS =========
+CTRL + T               → File search & open (fzf)
+CTRL + F               → Folder search & cd (fzf)
+CTRL + R               → History search (fzf)
+CTRL + P               → Package list (pkg)
+CTRL + Y               → Package install (yay)
+CTRL + V               → Package remove (yay)
+CTRL + S               → Package search (yay)
+jk                     → Exit insert mode (Vi mode)
+
+========= KITTY KEYBINDS =========
+CTRL + ALT + ENTER     → Split window vertical
+CTRL + ALT + SHIFT + ENTER → Split window horizontal
+ALT + L                → Neighboring window right
+ALT + H                → Neighboring window left
+CTRL + UP              → Neighboring window up
+CTRL + DOWN            → Neighboring window down
+CTRL + W               → Close window
+CTRL + SHIFT + W       → Close window
+CTRL + ALT + W         → Close window
+CTRL + SHIFT + R       → Next layout
+CTRL + ALT + R         → Previous layout
+ALT + T                → New tab
+CTRL + SHIFT + L       → Next tab
+CTRL + SHIFT + H       → Previous tab
+ALT + W                → Close tab
+CTRL + SHIFT + ALT + L → Move tab forward
+CTRL + SHIFT + ALT + H → Move tab backward
+CTRL + SHIFT + Q       → Quit Kitty
+CTRL + SHIFT + R       → Reload config
+CTRL + SHIFT + C       → Copy to clipboard
+CTRL + SHIFT + V       → Paste from clipboard
+
+========= ZSH FUNCTIONS =========
+fastdownload URL       → Download with aria2c
+videoconvertmp3        → Convert video to MP3
+youtubedownload        → Download from YouTube
+battery_status         → Show battery level

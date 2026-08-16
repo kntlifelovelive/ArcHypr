@@ -1,0 +1,217 @@
+#!/usr/bin/env bash
+
+trap "tput cnorm; exit" INT TERM EXIT
+
+# ┌────────────────────────────────────────────┐
+# │       Script Path Search Variable          │
+# └────────────────────────────────────────────┘
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# ┌────────────────────────────────────────────┐
+# │           Banner Wave Animation            │
+# └────────────────────────────────────────────┘
+animate_banner() {
+  clear
+  local banner=(
+    "   █████╗ ██████╗  ██████╗██╗  ██╗"
+    "  ██╔══██╗██╔══██╗██╔════╝██║  ██║"
+    "  ███████║██████╔╝██║     ███████║"
+    "  ██╔══██║██╔══██╗██║     ██╔══██║"
+    "  ██║  ██║██║  ██║╚██████╗██║  ██║"
+    "  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝"
+  )
+
+  for ((i = 0; i < ${#banner[@]}; i++)); do
+    tput cup $i 0
+    echo -ne "\033[1;35m${banner[$i]}\033[0m"
+    sleep 0.08
+  done
+  echo
+}
+
+# ┌────────────────────────────────────────────┐
+# │           Neon Typing  Function            │
+# └────────────────────────────────────────────┘
+neo_type() {
+  local color=$1
+  local text="$2"
+  local newline=${3:-yes}
+
+  echo -ne "\033[${color}m"
+  for ((i = 0; i < ${#text}; i++)); do
+    printf "%s" "${text:$i:1}"
+    sleep 0.05
+  done
+
+  if [[ "$newline" == "yes" ]]; then
+    echo -e "\033[0m"
+  else
+    echo -ne "\033[0m"
+  fi
+}
+
+# ┌────────────────────────────────────────────┐
+# │           Flash Confirm Animation          │
+# └────────────────────────────────────────────┘
+flash_message() {
+  local color=$1
+  local message="$2"
+  for i in {1..2}; do
+    echo -ne "\r\033[${color}m${message}\033[0m"
+    sleep 0.12
+    echo -ne "\r                           "
+    sleep 0.1
+  done
+  echo -e "\r\033[${color}m${message}\033[0m"
+  sleep 0.3
+  echo
+}
+
+# ┌────────────────────────────────────────────┐
+# │     Victory Banner Animation (New Style)   │
+# └────────────────────────────────────────────┘
+victoryhyr() {
+  clear
+  local art=(
+    "   ▄████████    ▄████████  ▄████████    ▄█    █▄       ▄███████▄ ▄██   ▄      ▄████████ "
+    "  ███    ███   ███    ███ ███    ███   ███    ███     ███    ███ ███   ██▄   ███    ███ "
+    "  ███    ███   ███    ███ ███    █▀    ███    ███     ███    ███ ███▄▄▄███   ███    ███ "
+    "  ███    ███  ▄███▄▄▄▄██▀ ███         ▄███▄▄▄▄███▄▄   ███    ███ ▀▀▀▀▀▀███  ▄███▄▄▄▄██▀ "
+    "▀███████████ ▀▀███▀▀▀▀▀   ███        ▀▀███▀▀▀▀███▀  ▀█████████▀  ▄██   ███ ▀▀███▀▀▀▀▀   "
+    "  ███    ███ ▀███████████ ███    █▄    ███    ███     ███        ███   ███ ▀███████████ "
+    "  ███    ███   ███    ███ ███    ███   ███    ███     ███        ███   ███   ███    ███ "
+    "  ███    █▀    ███    ███ ████████▀    ███    █▀     ▄████▀       ▀█████▀    ███    ███ "
+    "               ███    ███                                                    ███    ███ "
+  )
+
+  for line in "${art[@]}"; do
+    echo -ne "\033[1;35m$line\033[0m\n"
+    sleep 0.08
+  done
+
+  echo
+  echo
+  neo_type "1;36" "Welcome to ArcHypr Dream ! ..."
+  echo
+}
+
+# ┌────────────────────────────────────────────┐
+# │                 Start Script               │
+# └────────────────────────────────────────────┘
+animate_banner
+neo_type "1;36" "Welcome to ArcHypr Setup Installer"
+echo
+
+# ┌────────────────────────────────────────────┐
+# │          Start Prompt (Neo Style)          │
+# └────────────────────────────────────────────┘
+neo_type "1;93" "Do you want to start the setup? (y/n): "
+read -r confirm
+
+if [[ "$confirm" =~ ^[Yy]$ ]]; then
+  flash_message "1;32" "✔ Starting Setup..."
+elif [[ "$confirm" =~ ^[Nn]$ ]]; then
+  flash_message "1;31" "✖ Setup Canceled."
+  exit 0
+else
+  flash_message "1;33" "⚠ Invalid Input."
+  exit 1
+fi
+
+# ┌────────────────────────────────────────────┐
+# │      Start Yay Packages Install Setup      │
+# └────────────────────────────────────────────┘
+neo_type "1;34" "Installing YAY Package Manager  Bulid ..."
+sleep 5
+bash "$SCRIPT_DIR/install/install-yay-package.sh"
+neo_type "1;34" "YAY Package Manager  Bulid done ..."
+sleep 5
+
+# ┌────────────────────────────────────────────┐
+# │        installing Wallpaper Bank           │
+# └────────────────────────────────────────────┘
+neo_type "1;34" "Installing Wallpaper Bank ..."
+sleep 3
+bash "$SCRIPT_DIR/install/install-wallpaper.sh"
+neo_type "1;32" "Wallpaper-Bank  successfully!"
+
+# ┌────────────────────────────────────────────┐
+# │            Installing Packages             │
+# └────────────────────────────────────────────┘
+neo_type "1;34" "Installing Packages For Arch hyprland"
+sleep 5
+
+neo_type "1;93" "Install Zsh + OhMyZsh Environment? (y/n): "
+read -r zsh_confirm
+
+if [[ "$zsh_confirm" =~ ^[Yy]$ ]]; then
+  bash "$SCRIPT_DIR/install/zshplugin.sh"
+fi
+
+# ┌────────────────────────────────────────────┐
+# │     Package pacman or Yay Install Script   │
+# └────────────────────────────────────────────┘
+bash "$SCRIPT_DIR/install/install-2packages.sh"
+
+# ┌────────────────────────────────────────────┐
+# │     Enable Audio & Network Services        │
+# └────────────────────────────────────────────┘
+bash "$SCRIPT_DIR/install/setup-hyprland-services.sh"
+
+# ┌────────────────────────────────────────────┐
+# │     font cache refresh Command run         │
+# └────────────────────────────────────────────┘
+neo_type "1;34" "font cache refresh"
+sleep 5
+fc-cache -fv
+sleep 3
+neo_type "1;34" "font cache refresh done !"
+echo
+
+# ┌────────────────────────────────────────────┐
+# │           Hypland Setup Configs            │
+# └────────────────────────────────────────────┘
+neo_type "1;34" "Hyprland Setup Configurations Start"
+sleep 5
+bash "$SCRIPT_DIR/install/setup-config.sh"
+
+echo
+neo_type "1;32" "✔ Arch Hyprland Config and Packages Install Complete!"
+sleep 3
+
+# ┌────────────────────────────────────────────┐
+# │               Reload Hyprland              │
+# └────────────────────────────────────────────┘
+neo_type "1;36" "Reloading Hyprland..."
+hyprctl reload 2>/dev/null || true
+neo_type "1;32" "Hyprland reloaded successfully!"
+sleep 3
+
+# ┌────────────────────────────────────────────┐
+# │               Victory Screen               │
+# └────────────────────────────────────────────┘
+victoryhyr
+
+# ┌────────────────────────────────────────────┐
+# │          Continue / Reboot Prompt          │
+# └────────────────────────────────────────────┘
+while true; do
+  neo_type "1;93" "Do you want to continue (c) or reboot (r)? [c/r]: "
+  read -r choice
+
+  case "$choice" in
+  [Cc]*)
+    flash_message "1;32" "Continuing without reboot..."
+    break
+    ;;
+  [Rr]*)
+    flash_message "1;31" "Rebooting now..."
+    sudo reboot
+    ;;
+  *)
+    flash_message "1;33" "Please enter c or r."
+    ;;
+  esac
+done
+
+clear
