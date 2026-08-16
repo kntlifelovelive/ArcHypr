@@ -31,10 +31,10 @@ echo
 echo "[Network] Enabling NetworkManager..."
 
 if systemctl list-unit-files | grep -q '^NetworkManager.service'; then
-	sudo systemctl enable --now NetworkManager.service
-	echo "[Network] NetworkManager enabled."
+  sudo systemctl enable --now NetworkManager.service
+  echo "[Network] NetworkManager enabled."
 else
-	echo "[Network] NetworkManager not found — skipping."
+  echo "[Network] NetworkManager not found — skipping."
 fi
 
 echo
@@ -45,10 +45,10 @@ echo
 echo "[Bluetooth] Enabling Bluetooth service..."
 
 if systemctl list-unit-files | grep -q '^bluetooth.service'; then
-	sudo systemctl enable --now bluetooth.service
-	echo "[Bluetooth] Bluetooth enabled."
+  sudo systemctl enable --now bluetooth.service
+  echo "[Bluetooth] Bluetooth enabled."
 else
-	echo "[Bluetooth] bluetooth.service not found — skipping."
+  echo "[Bluetooth] bluetooth.service not found — skipping."
 fi
 
 echo
@@ -59,10 +59,10 @@ echo
 echo "[Display] Enabling SDDM..."
 
 if systemctl list-unit-files | grep -q '^sddm.service'; then
-	sudo systemctl enable sddm.service
-	echo "[Display] SDDM enabled (start on boot)."
+  sudo systemctl enable sddm.service
+  echo "[Display] SDDM enabled (start on boot)."
 else
-	echo "[Display] sddm.service not found — skipping."
+  echo "[Display] sddm.service not found — skipping."
 fi
 
 echo
@@ -70,29 +70,29 @@ echo
 # ┌────────────────────────────────────────────┐
 # │                Firewall                    │
 # └────────────────────────────────────────────┘
-echo "[Firewall] Enabling UFW..."
-
-if systemctl list-unit-files | grep -q '^ufw.service'; then
-	sudo systemctl enable --now ufw.service
-	sudo ufw enable 2>/dev/null || true
-	echo "[Firewall] UFW enabled."
-else
-	echo "[Firewall] ufw.service not found — skipping."
-fi
-
-echo
+# echo "[Firewall] Enabling UFW..."
+#
+# if systemctl list-unit-files | grep -q '^ufw.service'; then
+# 	sudo systemctl enable --now ufw.service
+# 	sudo ufw enable 2>/dev/null || true
+# 	echo "[Firewall] UFW enabled."
+# else
+# 	echo "[Firewall] ufw.service not found — skipping."
+# fi
+#
+# echo
 
 # ┌────────────────────────────────────────────┐
 # │              SSH Service                   │
 # └────────────────────────────────────────────┘
-echo "[SSH] Enabling SSH service..."
-
-if systemctl list-unit-files | grep -q '^sshd.service'; then
-	sudo systemctl enable --now sshd.service
-	echo "[SSH] SSH enabled."
-else
-	echo "[SSH] sshd.service not found — skipping."
-fi
+# echo "[SSH] Enabling SSH service..."
+#
+# if systemctl list-unit-files | grep -q '^sshd.service'; then
+# 	sudo systemctl enable --now sshd.service
+# 	echo "[SSH] SSH enabled."
+# else
+# 	echo "[SSH] sshd.service not found — skipping."
+# fi
 
 echo
 echo "=========================================="

@@ -77,13 +77,13 @@ entry {
 
 case "${chosen}" in
 " Lock")
-  swaylock
+  loginctl lock-session
   ;;
 "󰽥 Suspend")
   systemctl suspend
   ;;
 "󰍃 Logout")
-  uwsm stop
+  hyprctl dispatch exit
   ;;
 "󰜉 Reboot")
   systemctl reboot

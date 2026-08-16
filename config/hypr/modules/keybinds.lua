@@ -16,6 +16,7 @@ local reload_waybar = vars.reload_waybar
 -- =================================================
 -- APP LAUNCHERS
 -- =================================================
+hl.bind(mainMod .. "+ V", hl.dsp.exec_cmd("walker --provider clipboard"))
 
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 
@@ -35,11 +36,14 @@ hl.bind(mainMod .. " + CTRL + T", hl.dsp.exec_cmd("Telegram"))
 
 -- Application Menu
 
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("~/.config/hypr/scripts/applauncher/appmenu.sh"))
+-- hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("~/.config/hypr/scripts/applauncher/appmenu.sh"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("~/.local/bin/appmenu"))
 
 -- Power Menu
 
+-- hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.config/hypr/scripts/powermenu/rofipowermenu.sh"))
 hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.config/hypr/scripts/powermenu/rofipowermenu.sh"))
+hl.bind(mainMod .. " + GRAVE", hl.dsp.exec_cmd("~/.local/bin/powermenu"))
 
 -- =================================================
 -- THEME SWITCH
@@ -48,6 +52,8 @@ hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.config/hypr/scripts/powerm
 hl.bind(mainMod .. " + ALT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/roficolorswitch/roficolor-switch.sh"))
 
 hl.bind(mainMod .. " + ALT + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/kitty-themes/kittytheme_switch.sh"))
+-- Global icon Switch
+hl.bind(mainMod .. " + ALT + I", hl.dsp.exec_cmd("~/.local/bin/iconthemeSwitcher"))
 
 hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("~/.config/hypr/scripts/hyprbordertheme/hyprbordertheme-switch.sh"))
 
@@ -57,7 +63,8 @@ hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("~/.config/hypr/scripts/hyprbor
 
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(reload_waybar))
 
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/waybar/waybar-css-themes-switch.sh"))
+-- hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/waybar/waybar-css-themes-switch.sh"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.local/bin/cssSwitch"))
 
 hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/waybar/waybar-pair-switch.sh"))
 
@@ -65,7 +72,8 @@ hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/waybar/
 -- WALLPAPER / HYPRLOCK
 -- =================================================
 
-hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper/wallpaperSwitch.sh"))
+-- hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper/wallpaperSwitch.sh"))
+hl.bind(mainMod .. " + BACKSLASH", hl.dsp.exec_cmd("~/.local/bin/wallpaper -p"))
 
 hl.bind(mainMod .. " + ALT + F", hl.dsp.exec_cmd("~/.config/hypr/scripts/hyprlock/hyprlockforeImage.sh"))
 
@@ -196,3 +204,11 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.exec_cmd("hyprctl dispatch resizeactiv
 -- HELP MENU
 -- =================================================
 hl.bind(mainMod .. " + ALT + H", hl.dsp.exec_cmd("~/.config/hypr/scripts/hyprmenu/hyprhelpmenu.sh"))
+
+-- full screen recording with desktop audio
+-- Screen Recording Full mp4
+hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("~/.local/bin/screenRefull"))
+-- Screen Recording Selected mp4
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.local/bin/screenRecordselect"))
+-- Screen Recording Stop
+hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("~/.local/bin/screenReStop"))

@@ -1,0 +1,7 @@
+{
+  "custom/recording": {
+    "exec": "~/.local/bin/screenrecording",
+    "interval": 1,
+    "return-type": "json"
+  }
+}

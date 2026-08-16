@@ -26,9 +26,9 @@
 ```bash
 sudo pacman -S --needed git base-devel
 
-git clone https://github.com/kntlifelovelive/hyprbuti.git
+git clone https://github.com/kntlifelovelive/ArcHypr.git
 
-cd hyprbuti
+cd ArcHypr
 
 chmod +x install/*.sh
 
@@ -41,7 +41,7 @@ bash mainstaller
   <img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=A6E3A1&fontWeight=bold&vCenter=true&width=435&height=25&lines=Keybinds" width="450"/>
 </div>
 
-## 🖥️ Hyprland Keybinds
+## Hyprland Keybinds
 
 ### Applications
 
@@ -110,7 +110,7 @@ bash mainstaller
 
 <br>
 
-## ⌨️ Zsh Keybinds
+##  Zsh Keybinds
 
 | Keybind | Action |
 |---------|--------|
@@ -125,7 +125,7 @@ bash mainstaller
 
 <br>
 
-## 🐱 Kitty Keybinds
+##  Kitty Keybinds
 
 ### Window Management
 
@@ -165,7 +165,7 @@ bash mainstaller
 
 <br>
 
-## 🛠️ Zsh Functions
+##  Zsh Functions
 
 | Command | Action |
 |---------|--------|
@@ -173,3 +173,13 @@ bash mainstaller
 | `videoconvertmp3` | Convert video to MP3 |
 | `youtubedownload` | Download from YouTube |
 | `battery_status` | Show battery level |
+
+<br>
+
+##  Screen Recording 
+
+| Command | Action |
+|---------|--------|
+| `Super + CTRL + R` | Full Screen Recording Audio and Video |
+| `Super + SHIFT + R` | Select Screen Recording Audio and Video |
+| `Super + CTRL + S` | Stop Screen Recording Audio and Video |

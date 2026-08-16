@@ -88,3 +88,9 @@ fastdownload URL       → Download with aria2c
 videoconvertmp3        → Convert video to MP3
 youtubedownload        → Download from YouTube
 battery_status         → Show battery level
+
+
+========= SCREEN RECORDING ========
+SUPER + CTRL + R       → Full Screen Recording Video and Audio
+SUPER + SHIFT + R      → Select Screen Recording Video and Audio
+SUPER + CTRL + S       → Stop Screen Recording

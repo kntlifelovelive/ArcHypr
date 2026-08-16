@@ -11,8 +11,8 @@ echo "Installing Wallpaper Bank..."
 mkdir -p ~/Pictures
 
 if [ ! -d ~/Pictures/wallpaper ]; then
-	git clone https://github.com/kntlifelovelive/bubuwallpaper.git ~/Pictures/wallpaper
-	echo "✔ Wallpaper installed successfully!"
+  git clone https://github.com/kntlifelovelive/bubuwallpaper.git ~/Pictures/wallpapers
+  echo "✔ Wallpaper installed successfully!"
 else
-	echo "✔ Wallpaper folder already exists."
+  echo "✔ Wallpaper folder already exists."
 fi

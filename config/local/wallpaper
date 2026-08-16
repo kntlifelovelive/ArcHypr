@@ -10,7 +10,7 @@
 set -euo pipefail
 
 ### Configuration
-WALL_DIR="$HOME/Pictures/wallpapers"
+WALL_DIR="$HOME/Pictures/wallpaper"
 STATE_FILE="$HOME/.cache/niri-themes/current-wallpaper.txt"
 STATE_DIR="$HOME/.cache/niri-themes"
 ROFI_THEME="$HOME/.config/rofi/wallpaper/wallpapers.rasi"
