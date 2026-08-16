@@ -54,7 +54,7 @@ bash mainstaller
 | `SUPER + CTRL + M` | Music Player |
 | `SUPER + CTRL + T` | Telegram |
 | `SUPER + D` | App Launcher |
-| `SUPER + CTRL + P` | Power Menu |
+| `SUPER + Grave` | Power Menu |
 
 ### Window Control
 
@@ -158,7 +158,6 @@ bash mainstaller
 
 | Keybind | Action |
 |---------|--------|
-| `CTRL + SHIFT + Q` | Quit Kitty |
 | `CTRL + SHIFT + R` | Reload config |
 | `CTRL + SHIFT + C` | Copy to clipboard |
 | `CTRL + SHIFT + V` | Paste from clipboard |
