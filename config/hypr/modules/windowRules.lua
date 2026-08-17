@@ -8,152 +8,501 @@
 -- │           WINDOWS AND WORKSPACES           │
 -- └────────────────────────────────────────────┘
 
-hl.windowrule = {
-	-- Workspace rules
-	"match:tag multimedia*, workspace 9 silent",
-	"match:class obsidian, workspace 8",
+-- =============================================
+-- 1. WORKSPACE RULES
+-- =============================================
 
-	-- Browser tags
-	"match:class ^([Ff]irefox|org.mozilla.firefox|[Ff]irefox-esr|[Ff]irefox-bin)$, tag +browser",
-	"match:class ^([Gg]oogle-chrome(-beta|-dev|-unstable)?)$, tag +browser",
-	"match:class ^(chrome-.+-Default)$, tag +browser",
-	"match:class ^([Cc]hromium)$, tag +browser",
-	"match:class ^(Brave-browser(-beta|-dev|-unstable)?)$, tag +browser",
-	"match:class ^([Tt]horium-browser|[Cc]achy-browser)$, tag +browser",
-	"match:class ^(zen-alpha|zen)$, tag +browser",
+hl.window_rule({
+	match = { tag = "multimedia*" },
+	workspace = "9 silent",
+})
 
-	-- Notif tags
-	"match:class ^(swaync-control-center|swaync-notification-window|swaync-client|class)$, tag +notif",
+hl.window_rule({
+	match = { class = "obsidian" },
+	workspace = "8",
+})
 
-	-- Terminal tags
-	"match:class ^(Alacritty|kitty|kitty-dropterm)$, tag +terminal",
+-- =============================================
+-- 2. TAG RULES (Browser, Terminal, IM, etc.)
+-- =============================================
 
-	-- Screenshare tags
-	"match:class ^(com.obsproject.Studio)$, tag +screenshare",
+-- Browser tags
+hl.window_rule({
+	match = { class = "^([Ff]irefox|org.mozilla.firefox|[Ff]irefox-esr|[Ff]irefox-bin)$" },
+	tag = "+browser",
+})
+hl.window_rule({
+	match = { class = "^([Gg]oogle-chrome(-beta|-dev|-unstable)?)$" },
+	tag = "+browser",
+})
+hl.window_rule({
+	match = { class = "^(chrome-.+-Default)$" },
+	tag = "+browser",
+})
+hl.window_rule({
+	match = { class = "^([Cc]hromium)$" },
+	tag = "+browser",
+})
+hl.window_rule({
+	match = { class = "^(Brave-browser(-beta|-dev|-unstable)?)$" },
+	tag = "+browser",
+})
+hl.window_rule({
+	match = { class = "^([Tt]horium-browser|[Cc]achy-browser)$" },
+	tag = "+browser",
+})
+hl.window_rule({
+	match = { class = "^(zen-alpha|zen)$" },
+	tag = "+browser",
+})
 
-	-- IM tags
-	"match:class ^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$, tag +im",
-	"match:class ^([Ff]erdium)$, tag +im",
-	"match:class ^([Ww]hatsapp-for-linux)$, tag +im",
-	"match:class ^(org.telegram.desktop|io.github.tdesktop_x64.TDesktop)$, tag +im",
-	"match:class ^(teams-for-linux)$, tag +im",
-	"match:class ^(im.riot.Riot|Element)$, tag +im",
+-- Notif tags
+hl.window_rule({
+	match = { class = "^(swaync-control-center|swaync-notification-window|swaync-client|class)$" },
+	tag = "+notif",
+})
 
-	-- File-manager tags
-	"match:class ^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$, tag +file-manager",
-	"match:class ^(app.drey.Warp)$, tag +file-manager",
+-- Terminal tags
+hl.window_rule({
+	match = { class = "^(Alacritty|kitty|kitty-dropterm)$" },
+	tag = "+terminal",
+})
 
-	-- Wallpaper tags
-	"match:class ^([Ww]aytrogen)$, tag +wallpaper",
+-- Screenshare tags
+hl.window_rule({
+	match = { class = "^(com.obsproject.Studio)$" },
+	tag = "+screenshare",
+})
 
-	-- Multimedia tags
-	"match:class ^([Aa]udacious)$, tag +multimedia",
+-- IM tags
+hl.window_rule({
+	match = { class = "^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$" },
+	tag = "+im",
+})
+hl.window_rule({
+	match = { class = "^([Ff]erdium)$" },
+	tag = "+im",
+})
+hl.window_rule({
+	match = { class = "^([Ww]hatsapp-for-linux)$" },
+	tag = "+im",
+})
+hl.window_rule({
+	match = { class = "^(org.telegram.desktop|io.github.tdesktop_x64.TDesktop)$" },
+	tag = "+im",
+})
+hl.window_rule({
+	match = { class = "^(teams-for-linux)$" },
+	tag = "+im",
+})
+hl.window_rule({
+	match = { class = "^(im.riot.Riot|Element)$" },
+	tag = "+im",
+})
 
-	-- Multimedia-video tags
-	"match:class ^([Mm]pv|vlc)$, tag +multimedia_video",
+-- File-manager tags
+hl.window_rule({
+	match = { class = "^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$" },
+	tag = "+file-manager",
+})
+hl.window_rule({
+	match = { class = "^(app.drey.Warp)$" },
+	tag = "+file-manager",
+})
 
-	-- Settings tags
-	"match:class ^(wihotspot(-gui)?)$, tag +settings",
-	"match:class ^([Bb]aobab|org.gnome.[Bb]aobab)$, tag +settings",
-	"match:class ^(gnome-disks|wihotspot(-gui)?)$, tag +settings",
-	"match:title (Kvantum Manager), tag +settings",
-	"match:class ^(file-roller|org.gnome.FileRoller)$, tag +settings",
-	"match:class ^(nm-applet|nm-connection-editor|blueman-manager)$, tag +settings",
-	"match:class ^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$, tag +settings",
-	"match:class ^(qt5ct|qt6ct)$, tag +settings",
-	"match:class (xdg-desktop-portal-gtk), tag +settings",
-	"match:class ^(org.kde.polkit-kde-authentication-agent-1)$, tag +settings",
-	"match:class ^([Rr]ofi)$, tag +settings",
-	"match:class ^(btrfs-assistant)$, tag +settings",
-	"match:class ^(timeshift-gtk)$, tag +settings",
+-- Wallpaper tags
+hl.window_rule({
+	match = { class = "^([Ww]aytrogen)$" },
+	tag = "+wallpaper",
+})
 
-	-- Viewer tags
-	"match:class ^(gnome-system-monitor|org.gnome.SystemMonitor|io.missioncenter.MissionCenter)$, tag +viewer",
-	"match:class ^(evince)$, tag +viewer",
-	"match:class ^(eog|org.gnome.Loupe)$, tag +viewer",
+-- Multimedia tags
+hl.window_rule({
+	match = { class = "^([Aa]udacious)$" },
+	tag = "+multimedia",
+})
 
-	-- Special override
-	"match:tag multimedia_video, no_blur on",
-	"match:tag multimedia_video, opacity 1.0",
-	"match:tag multimedia, no_blur on",
-	"match:tag multimedia, opacity 1.0",
+-- Multimedia-video tags
+hl.window_rule({
+	match = { class = "^([Mm]pv|vlc)$" },
+	tag = "+multimedia_video",
+})
 
-	-- Position
-	"match:title ^(Keybindings)$, center on",
-	"match:class ^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$, center on",
-	"match:class ^([Ff]erdium)$, center on",
+-- Settings tags
+hl.window_rule({
+	match = { class = "^(wihotspot(-gui)?)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^([Bb]aobab|org.gnome.[Bb]aobab)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^(gnome-disks|wihotspot(-gui)?)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { title = "(Kvantum Manager)" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^(file-roller|org.gnome.FileRoller)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^(nm-applet|nm-connection-editor|blueman-manager)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^(qt5ct|qt6ct)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "(xdg-desktop-portal-gtk)" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^(org.kde.polkit-kde-authentication-agent-1)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^([Rr]ofi)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^(btrfs-assistant)$" },
+	tag = "+settings",
+})
+hl.window_rule({
+	match = { class = "^(timeshift-gtk)$" },
+	tag = "+settings",
+})
 
-	-- Idle inhibit
-	"match:fullscreen true, idle_inhibit fullscreen",
-	"idle_inhibit fullscreen, match:fullscreen 1",
-	"idle_inhibit fullscreen, match:class .*",
-	"idle_inhibit fullscreen, match:title .*",
+-- Viewer tags
+hl.window_rule({
+	match = { class = "^(gnome-system-monitor|org.gnome.SystemMonitor|io.missioncenter.MissionCenter)$" },
+	tag = "+viewer",
+})
+hl.window_rule({
+	match = { class = "^(evince)$" },
+	tag = "+viewer",
+})
+hl.window_rule({
+	match = { class = "^(eog|org.gnome.Loupe)$" },
+	tag = "+viewer",
+})
 
-	-- Float
-	"match:tag wallpaper, float on, center on",
-	"match:tag settings, float on, center on",
-	"match:tag viewer, float on, center on",
-	"match:class ([Zz]oom|onedriver|onedriver-launcher), float on",
-	"match:class (org.gnome.Calculator|qalculate-gtk), float on",
-	"match:class ^(mpv|com.github.rafostar.Clapper)$, float on",
-	"match:class ^([Qq]alculate-gtk)$, float on",
-	"match:class ^([Ff]erdium)$, float on",
+-- =============================================
+-- 3. SPECIAL OVERRIDES
+-- =============================================
 
-	-- Popups
-	"match:title ^(Authentication Required)$, float on, center on",
-	"match:class (codium|codium-url-handler|VSCodium) match:title negative:(.*codium.*|.*VSCodium.*), float on",
-	"match:class ^(com.heroicgameslauncher.hgl)$ match:title negative:(Heroic Games Launcher), float on",
-	"match:class ^([Ss]team)$ match:title negative:^([Ss]team)$, float on",
-	"match:title ^(Add Folder to Workspace)$, float on, size (monitor_w*0.7) (monitor_h*0.6), center on",
-	"match:title ^(Save As)$, float on, size (monitor_w*0.7) (monitor_h*0.6), center on",
-	"match:initial_title (Open Files), float on, size (monitor_w*0.7) (monitor_h*0.6)",
-	"match:title ^(SDDM Background)$, float on, center on, size (monitor_w*0.16) (monitor_h*0.12)",
-	"match:class ^(yad)$, float on, center on, size (monitor_w*0.2) (monitor_h*0.2)",
-	"match:class ^(hyprland-donate-screen)$, float on, center on",
+hl.window_rule({
+	match = { tag = "multimedia_video" },
+	no_blur = true,
+	opacity = "1.0",
+})
+hl.window_rule({
+	match = { tag = "multimedia" },
+	no_blur = true,
+	opacity = "1.0",
+})
 
-	-- Opacity
-	"opacity 0.8 0.7, match:float true",
-	"opacity 0.8 0.7, match:class obsidian",
-	"opacity 0.8 0.7, match:class balenaEtcher",
-	"opacity 0.8 0.7, match:class virt-manager",
-	"opacity 0.8 0.7, match:class outline-Client",
-	"match:tag multimedia, opacity 0.8 0.7",
-	"opacity 0.8 0.8, match:class mpv",
-	"match:class firefox, opacity 0.8 0.7",
-	"match:class chromium, opacity 0.8 0.7",
-	"match:class code, opacity 0.8 0.7",
-	"match:tag projects, opacity 0.9 0.8",
-	"match:tag im, opacity 0.94 0.86",
-	"match:tag file-manager, opacity 0.9 0.8",
-	"match:tag terminal, opacity 0.9 0.7",
-	"match:tag settings, opacity 0.8 0.7",
-	"match:tag viewer, opacity 0.82 0.75",
-	"match:tag wallpaper, opacity 0.9 0.7",
-	"match:class ^(gedit|org.gnome.TextEditor|mousepad)$, opacity 0.8 0.7",
-	"match:class ^(deluge)$, opacity 0.9 0.8",
-	"match:class ^(seahorse)$, opacity 0.9 0.8",
-	"match:title ^(Picture-in-Picture)$, opacity 0.95 0.75",
+-- =============================================
+-- 4. POSITION / CENTER
+-- =============================================
 
-	-- Size
-	"match:tag wallpaper, size (monitor_w*0.7) (monitor_h*0.7)",
-	"match:tag settings, size (monitor_w*0.7) (monitor_h*0.7)",
-	"match:class ^([Ff]erdium)$, size (monitor_w*0.6) (monitor_h*0.7)",
+hl.window_rule({
+	match = { title = "^(Keybindings)$" },
+	center = true,
+})
+hl.window_rule({
+	match = { class = "^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$" },
+	center = true,
+})
+hl.window_rule({
+	match = { class = "^([Ff]erdium)$" },
+	center = true,
+})
 
-	-- Blur & Fullscreen
-	"match:tag games, no_blur on, fullscreen 0",
-	"match:tag games, fullscreen 0",
+-- =============================================
+-- 5. IDLE INHIBIT (Fullscreen)
+-- =============================================
 
-	-- Focus
-	"match:class ^(jetbrains-*), no_initial_focus on",
-	"match:title ^(wind.*)$, no_initial_focus on",
-}
+hl.window_rule({
+	match = { fullscreen = true },
+	idle_inhibit = "fullscreen",
+})
+hl.window_rule({
+	match = { fullscreen = "1" },
+	idle_inhibit = "fullscreen",
+})
+hl.window_rule({
+	match = { class = ".*" },
+	idle_inhibit = "fullscreen",
+})
+hl.window_rule({
+	match = { title = ".*" },
+	idle_inhibit = "fullscreen",
+})
 
--- Named window rules (windowrulev2)
+-- =============================================
+-- 6. FLOAT RULES
+-- =============================================
+
+-- Pavucontrol / Blueman
+hl.window_rule({
+	match = { class = "^org%.pulseaudio%.pavucontrol$" },
+	float = true,
+	center = true,
+	-- size = "60% 80%",
+})
+
+hl.window_rule({
+	match = { class = "^blueman%-manager$" },
+	float = true,
+	center = true,
+	size = "35% 50%",
+})
+
+hl.window_rule({
+	match = { tag = "wallpaper" },
+	float = true,
+	center = true,
+})
+hl.window_rule({
+	match = { tag = "settings" },
+	float = true,
+	center = true,
+})
+hl.window_rule({
+	match = { tag = "viewer" },
+	float = true,
+	center = true,
+})
+hl.window_rule({
+	match = { class = "([Zz]oom|onedriver|onedriver-launcher)" },
+	float = true,
+})
+hl.window_rule({
+	match = { class = "(org.gnome.Calculator|qalculate-gtk)" },
+	float = true,
+})
+hl.window_rule({
+	match = { class = "^(mpv|com.github.rafostar.Clapper)$" },
+	float = true,
+})
+hl.window_rule({
+	match = { class = "^([Qq]alculate-gtk)$" },
+	float = true,
+})
+hl.window_rule({
+	match = { class = "^([Ff]erdium)$" },
+	float = true,
+})
+
+-- =============================================
+-- 7. POPUPS
+-- =============================================
+
+hl.window_rule({
+	match = { title = "^(Authentication Required)$" },
+	float = true,
+	center = true,
+})
+hl.window_rule({
+	match = { class = "(codium|codium-url-handler|VSCodium)", title = "negative:(.*codium.*|.*VSCodium.*)" },
+	float = true,
+})
+hl.window_rule({
+	match = { class = "^(com.heroicgameslauncher.hgl)$", title = "negative:(Heroic Games Launcher)" },
+	float = true,
+})
+hl.window_rule({
+	match = { class = "^([Ss]team)$", title = "negative:^([Ss]team)$" },
+	float = true,
+})
+hl.window_rule({
+	match = { title = "^(Add Folder to Workspace)$" },
+	float = true,
+	size = "70% 60%",
+	center = true,
+})
+hl.window_rule({
+	match = { title = "^(Save As)$" },
+	float = true,
+	size = "70% 60%",
+	center = true,
+})
+hl.window_rule({
+	match = { initial_title = "(Open Files)" },
+	float = true,
+	size = "70% 60%",
+})
+hl.window_rule({
+	match = { title = "^(SDDM Background)$" },
+	float = true,
+	center = true,
+	size = "16% 12%",
+})
+hl.window_rule({
+	match = { class = "^(yad)$" },
+	float = true,
+	center = true,
+	size = "20% 20%",
+})
+hl.window_rule({
+	match = { class = "^(hyprland-donate-screen)$" },
+	float = true,
+	center = true,
+})
+
+-- =============================================
+-- 8. OPACITY RULES
+-- =============================================
+
+hl.window_rule({
+	match = { float = true },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { class = "obsidian" },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { class = "balenaEtcher" },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { class = "virt-manager" },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { class = "outline-Client" },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { tag = "multimedia" },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { class = "mpv" },
+	opacity = "0.8 0.8",
+})
+hl.window_rule({
+	match = { class = "firefox" },
+	opacity = "0.8 0.9",
+})
+hl.window_rule({
+	match = { class = "chromium" },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { class = "code" },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { tag = "projects" },
+	opacity = "0.9 0.8",
+})
+hl.window_rule({
+	match = { tag = "im" },
+	opacity = "0.94 0.86",
+})
+hl.window_rule({
+	match = { tag = "file-manager" },
+	opacity = "0.9 0.8",
+})
+hl.window_rule({
+	match = { tag = "terminal" },
+	opacity = "0.9 0.7",
+})
+hl.window_rule({
+	match = { tag = "settings" },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { tag = "viewer" },
+	opacity = "0.82 0.75",
+})
+hl.window_rule({
+	match = { tag = "wallpaper" },
+	opacity = "0.9 0.7",
+})
+hl.window_rule({
+	match = { class = "^(gedit|org.gnome.TextEditor|mousepad)$" },
+	opacity = "0.8 0.7",
+})
+hl.window_rule({
+	match = { class = "^(deluge)$" },
+	opacity = "0.9 0.8",
+})
+hl.window_rule({
+	match = { class = "^(seahorse)$" },
+	opacity = "0.9 0.8",
+})
+hl.window_rule({
+	match = { title = "^(Picture-in-Picture)$" },
+	opacity = "0.95 0.75",
+})
+
+-- =============================================
+-- 9. SIZE RULES
+-- =============================================
+
+hl.window_rule({
+	match = { tag = "wallpaper" },
+	size = "70% 70%",
+})
+
+-- hl.window_rule({
+-- 	match = { tag = "settings" },
+-- 	size = "70% 70%",
+-- })
+-- hl.window_rule({
+--     match = { class = "^([Ff]erdium)$" },
+--     size = "60% 70%"
+-- })
+
+-- =============================================
+-- 10. BLUR & FULLSCREEN
+-- =============================================
+
+hl.window_rule({
+	match = { tag = "games" },
+	no_blur = true,
+	fullscreen = "0",
+})
+hl.window_rule({
+	match = { tag = "games" },
+	fullscreen = "0",
+})
+
+-- =============================================
+-- 11. FOCUS
+-- =============================================
+
+hl.window_rule({
+	match = { class = "^(jetbrains-*)" },
+	no_initial_focus = true,
+})
+hl.window_rule({
+	match = { title = "^(wind.*)$" },
+	no_initial_focus = true,
+})
+
+-- =============================================
+-- 12. WINDOWRULEV2 (Named Rules)
+-- =============================================
+
 hl.windowrulev2 = {
 	{
 		name = "Whatsapp-zapzap",
 		match = "class ^([Ww]hatsapp-for-linux|ZapZap|com.rtosta.zapzap)$",
-		size = "(monitor_w*0.6) (monitor_h*0.7)",
+		size = "60% 70%",
 		center = "on",
 	},
 	{
@@ -164,13 +513,13 @@ hl.windowrulev2 = {
 		opacity = "0.95 0.75",
 		pin = "on",
 		keep_aspect_ratio = "on",
-		size = "(monitor_w*0.3) (monitor_h*0.3)",
+		size = "30% 30%",
 	},
 	{
 		name = "Thunar-Progress-bar",
 		match = "class ^(thunar)$, title ^(File Operation Progress)$",
 		float = "on",
 		center = "on",
-		size = "(monitor_w*0.26) (monitor_h*0.18)",
+		size = "26% 18%",
 	},
 }
